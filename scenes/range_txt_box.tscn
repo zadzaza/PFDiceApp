@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2v7j38bad0xg"]
+
+[ext_resource type="Texture2D" uid="uid://mxkfl6i22w16" path="res://PF/Rectangle 529 (1).png" id="1_f8ajm"]
+[ext_resource type="Script" path="res://scenes/range_txt_box.gd" id="1_musyg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpimm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mck81"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x7jnm"]
+
+[node name="RangeTxtBox" type="MarginContainer"]
+offset_right = 9.0
+script = ExtResource("1_musyg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_f8ajm")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 102
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vpimm")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_mck81")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x7jnm")
+text = "0"
+alignment = 1
+max_length = 2
+virtual_keyboard_type = 2
+flat = true

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://tyd7xbf76pqb"]
+
+[ext_resource type="Script" path="res://scenes/percent_txt_box.gd" id="1_wdlpe"]
+[ext_resource type="Theme" uid="uid://da7wyu8070q7g" path="res://resources/theme.tres" id="2_kpjix"]
+[ext_resource type="Texture2D" uid="uid://dxu7qq5ga0nhd" path="res://PF/percent.png" id="2_oy8np"]
+
+[node name="PercentTxtBox" type="MarginContainer"]
+custom_minimum_size = Vector2(414, 96)
+offset_right = 414.0
+offset_bottom = 96.0
+size_flags_horizontal = 8
+script = ExtResource("1_wdlpe")
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit" type="LineEdit" parent="."]
+modulate = Color(1, 1, 1, 0.439216)
+custom_minimum_size = Vector2(414, 96)
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 1
+mouse_force_pass_scroll_events = false
+theme = ExtResource("2_kpjix")
+max_length = 3
+virtual_keyboard_type = 2
+right_icon = ExtResource("2_oy8np")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 1

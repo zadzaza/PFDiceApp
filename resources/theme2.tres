@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://df1dqlr08uoth"]
+
+[ext_resource type="StyleBox" uid="uid://cn1rbbyu8gfqr" path="res://resources/bet_box.tres" id="1_1tkhk"]
+
+[resource]
+LineEdit/styles/focus = ExtResource("1_1tkhk")
+LineEdit/styles/normal = ExtResource("1_1tkhk")
+LineEdit/styles/read_only = ExtResource("1_1tkhk")

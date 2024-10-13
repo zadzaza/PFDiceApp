@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://bd7eogqkd4282"]
+
+[ext_resource type="Script" path="res://scenes/buttons.gd" id="1_00rcb"]
+[ext_resource type="Texture2D" uid="uid://b7jqi7r38ayuo" path="res://PF/Ресурсы/Кнопки неактивные/Frame 32.png" id="2_ueumt"]
+[ext_resource type="Texture2D" uid="uid://djudsvho7b8wi" path="res://PF/Ресурсы/Кнопки активные/Frame 32 (1).png" id="3_w4fxc"]
+[ext_resource type="Texture2D" uid="uid://bcai20buc4k0w" path="res://PF/Ресурсы/Кнопки неактивные/2X.png" id="4_kivtm"]
+[ext_resource type="Texture2D" uid="uid://bj588mf6fd5yk" path="res://PF/Ресурсы/Кнопки неактивные/Frame 34.png" id="4_nqvxj"]
+[ext_resource type="Texture2D" uid="uid://ckhuhgpwkdd4e" path="res://PF/Ресурсы/Кнопки активные/Frame 33 (1).png" id="5_c6e46"]
+[ext_resource type="Texture2D" uid="uid://djow8xonidodi" path="res://PF/Ресурсы/Кнопки неактивные/Frame 35.png" id="5_x5mse"]
+[ext_resource type="Texture2D" uid="uid://c2eidlphsoguu" path="res://PF/Ресурсы/Кнопки активные/Frame 34 (1).png" id="7_40geb"]
+[ext_resource type="Texture2D" uid="uid://b17s0pkla4jdv" path="res://PF/Ресурсы/Кнопки активные/Frame 35 (1).png" id="9_4m0br"]
+
+[node name="Buttons" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_00rcb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 27
+
+[node name="Min" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_ueumt")
+texture_pressed = ExtResource("3_w4fxc")
+
+[node name="2" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_kivtm")
+texture_pressed = ExtResource("5_c6e46")
+
+[node name="X2" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_nqvxj")
+texture_pressed = ExtResource("7_40geb")
+
+[node name="Max" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_x5mse")
+texture_pressed = ExtResource("9_4m0br")
+
+[connection signal="pressed" from="HBoxContainer/Min" to="." method="_on_min_pressed"]
+[connection signal="pressed" from="HBoxContainer/2" to="." method="_on_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/X2" to="." method="_on_x_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/Max" to="." method="_on_max_pressed"]

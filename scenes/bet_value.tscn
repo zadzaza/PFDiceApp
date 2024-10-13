@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4dnkwc7brepc"]
+
+[ext_resource type="Texture2D" uid="uid://da77wrseappo7" path="res://PF/Rectangle 529.png" id="1_4rn5v"]
+[ext_resource type="Script" path="res://scenes/bet_value.gd" id="1_c0eia"]
+[ext_resource type="Theme" uid="uid://df1dqlr08uoth" path="res://resources/theme2.tres" id="1_qco4r"]
+
+[sub_resource type="Theme" id="Theme_xbwtp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krrpx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8prhg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3u8nj"]
+
+[node name="BetValue" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_c0eia")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit2" type="LineEdit" parent="VBoxContainer/MarginContainer"]
+visible = false
+custom_minimum_size = Vector2(1053, 144)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 1
+mouse_force_pass_scroll_events = false
+theme = ExtResource("1_qco4r")
+theme_override_font_sizes/font_size = 1
+max_length = 3
+virtual_keyboard_type = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_4rn5v")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 45
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/MarginContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_xbwtp")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/focus = SubResource("StyleBoxEmpty_krrpx")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_8prhg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3u8nj")
+text = "10000"
+virtual_keyboard_type = 2
+flat = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.486275)
+theme_override_font_sizes/font_size = 39
+text = "Мин. 10 000"
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(1, 1, 1, 0.486275)
+theme_override_font_sizes/font_size = 39
+text = "Макс. 3 000 000"
+
+[connection signal="text_changed" from="VBoxContainer/MarginContainer/MarginContainer/LineEdit" to="." method="_on_line_edit_text_changed"]

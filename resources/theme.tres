@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://da7wyu8070q7g"]
+
+[ext_resource type="StyleBox" uid="uid://w2xlnlx6xdcq" path="res://resources/percet_box_normal.tres" id="1_0mny3"]
+[ext_resource type="StyleBox" uid="uid://b1l2yv7caigt" path="res://resources/percent_box_read_only.tres" id="2_uodph"]
+
+[resource]
+LineEdit/styles/focus = ExtResource("1_0mny3")
+LineEdit/styles/normal = ExtResource("1_0mny3")
+LineEdit/styles/read_only = ExtResource("2_uodph")

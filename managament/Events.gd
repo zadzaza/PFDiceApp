@@ -1,0 +1,9 @@
+extends Node
+
+signal history_btn_pressed
+signal activate_btn_pressed
+signal bet_btn_pressed
+signal min_btn_pressed
+signal _2_btn_pressed
+signal x_2_btn_pressed
+signal max_btn_pressed

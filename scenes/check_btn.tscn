@@ -1,0 +1,65 @@
+[gd_scene load_steps=15 format=3 uid="uid://ygx7hruyobqu"]
+
+[ext_resource type="Script" path="res://scenes/check_btn.gd" id="1_6okw4"]
+[ext_resource type="Texture2D" uid="uid://d2fkkdxob1xcx" path="res://PF/toggle_bg.png" id="2_t2evw"]
+[ext_resource type="Texture2D" uid="uid://cjtcv0cvrxj48" path="res://PF/ellipse_check_btn.png" id="3_jegxy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_akftd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vl0r7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynym8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0v4p3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_262sy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dca3e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vrbem"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tanp5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ewjna"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6xgc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mdy5i"]
+
+[node name="CheckBtn" type="Button"]
+custom_minimum_size = Vector2(117, 73)
+offset_left = -45.0
+offset_top = -37.0
+offset_right = 72.0
+offset_bottom = 36.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_akftd")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vl0r7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ynym8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0v4p3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_262sy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_dca3e")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vrbem")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_tanp5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ewjna")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y6xgc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mdy5i")
+flat = true
+script = ExtResource("1_6okw4")
+
+[node name="Marker1" type="Marker2D" parent="."]
+position = Vector2(35.5, 37)
+
+[node name="Marker2" type="Marker2D" parent="."]
+position = Vector2(81.5, 37)
+
+[node name="ToggleBg" type="Sprite2D" parent="."]
+modulate = Color(0.00784314, 0.0980392, 0.0431373, 1)
+position = Vector2(58.5, 37)
+texture = ExtResource("2_t2evw")
+
+[node name="EllipseCheck" type="Sprite2D" parent="."]
+position = Vector2(35.5, 37)
+texture = ExtResource("3_jegxy")
+
+[connection signal="pressed" from="." to="." method="_on_button_pressed"]

@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://hx7pk6opc7dk"]
+
+[ext_resource type="Texture2D" uid="uid://c2rsgfcxymmi4" path="res://PF/Rectangle 9.png" id="1_ibiiq"]
+[ext_resource type="Script" path="res://scenes/sum.gd" id="1_oth6o"]
+[ext_resource type="Texture2D" uid="uid://cl1nwmr3u2xhj" path="res://PF/Plus.png" id="2_0vlh8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jxa2w"]
+texture = ExtResource("1_ibiiq")
+texture_margin_left = 95.0
+texture_margin_right = 95.0
+
+[node name="Sum" type="MarginContainer"]
+offset_right = 293.0
+offset_bottom = 72.0
+script = ExtResource("1_oth6o")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jxa2w")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 36
+text = "11241 сум"
+horizontal_alignment = 1
+
+[node name="Rectangle" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("1_ibiiq")
+expand_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 2
+
+[node name="PlusBtn" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("2_0vlh8")
+texture_pressed = ExtResource("2_0vlh8")
+texture_hover = ExtResource("2_0vlh8")
+texture_disabled = ExtResource("2_0vlh8")
+texture_focused = ExtResource("2_0vlh8")

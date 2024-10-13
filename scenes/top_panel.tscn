@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dobiudbkgq835"]
+
+[ext_resource type="Script" path="res://scenes/top_panel.gd" id="1_nb6kw"]
+[ext_resource type="Texture2D" uid="uid://d2c3gwawboesu" path="res://PF/chevron_right_FILL0_wght300_GRAD0_opsz24 1.png" id="2_t7un2"]
+[ext_resource type="PackedScene" uid="uid://hx7pk6opc7dk" path="res://scenes/sum.tscn" id="3_cly4w"]
+[ext_resource type="Texture2D" uid="uid://4rr4b67tsile" path="res://PF/Frame.png" id="4_les5t"]
+[ext_resource type="Texture2D" uid="uid://cec3p8ntivgn2" path="res://PF/Frame (1).png" id="5_70xu2"]
+
+[node name="TopPanel" type="MarginContainer"]
+offset_right = 1125.0
+offset_bottom = 172.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/margin_left = 37
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 37
+script = ExtResource("1_nb6kw")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 25
+
+[node name="BackBtn" type="TextureButton" parent="HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("2_t7un2")
+texture_pressed = ExtResource("2_t7un2")
+texture_hover = ExtResource("2_t7un2")
+texture_disabled = ExtResource("2_t7un2")
+texture_focused = ExtResource("2_t7un2")
+
+[node name="Label" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "PF Dice"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 22
+
+[node name="Sum" parent="HBoxContainer3" instance=ExtResource("3_cly4w")]
+layout_mode = 2
+
+[node name="FrameBtn" type="TextureButton" parent="HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("4_les5t")
+texture_pressed = ExtResource("4_les5t")
+texture_hover = ExtResource("4_les5t")
+texture_disabled = ExtResource("4_les5t")
+texture_focused = ExtResource("4_les5t")
+
+[node name="HistoryBtn" type="TextureButton" parent="HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("5_70xu2")
+
+[connection signal="pressed" from="HBoxContainer3/HistoryBtn" to="." method="_on_history_btn_pressed"]

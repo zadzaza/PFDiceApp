@@ -1,0 +1,124 @@
+[gd_scene load_steps=6 format=3 uid="uid://evsf78bgv47p"]
+
+[ext_resource type="Texture2D" uid="uid://dp0q8cmbc1b4d" path="res://PF/Rectangle 535.png" id="1_lg0bu"]
+[ext_resource type="PackedScene" uid="uid://ygx7hruyobqu" path="res://scenes/check_btn.tscn" id="2_auwco"]
+[ext_resource type="Texture2D" uid="uid://dns4dul2ujyrj" path="res://PF/Line 3.png" id="4_x6qs6"]
+[ext_resource type="Script" path="res://scenes/disable_percent_box.gd" id="5_g0hqn"]
+[ext_resource type="PackedScene" uid="uid://tyd7xbf76pqb" path="res://scenes/percent_txt_box.tscn" id="5_th5y1"]
+
+[node name="IfDef" type="MarginContainer"]
+offset_right = 1088.0
+offset_bottom = 710.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_lg0bu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "в случае поражения"
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 42
+
+[node name="CheckBtn" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" groups=["if_def"] instance=ExtResource("2_auwco")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 39
+text = "Не изменять ставку"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_x6qs6")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 42
+
+[node name="CheckBtn" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2" groups=["if_def"] instance=ExtResource("2_auwco")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 39
+text = "Вернуться к базовой ставке"
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_x6qs6")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+script = ExtResource("5_g0hqn")
+
+[node name="CheckBtn" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3" groups=["if_def"] instance=ExtResource("2_auwco")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 39
+text = "Увеличить ставку на"
+
+[node name="PercentTxtBox" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("5_th5y1")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_x6qs6")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 42
+script = ExtResource("5_g0hqn")
+
+[node name="CheckBtn" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4" groups=["if_def"] instance=ExtResource("2_auwco")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 39
+text = "Уменьшить ставку на"
+
+[node name="PercentTxtBox" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("5_th5y1")]
+layout_mode = 2
+size_flags_horizontal = 10

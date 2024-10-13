@@ -1,0 +1,128 @@
+[gd_scene load_steps=16 format=3 uid="uid://dcnle66413xiy"]
+
+[ext_resource type="Texture2D" uid="uid://ba0nk640x357w" path="res://PF/Rectangle 533.png" id="1_8ut87"]
+[ext_resource type="Script" path="res://scenes/drawer.gd" id="1_rf1ia"]
+[ext_resource type="Texture2D" uid="uid://drd72xg48vdy4" path="res://PF/Rectangle 534.png" id="2_n6t2p"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_runcj"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_eedjo"]
+[ext_resource type="PackedScene" uid="uid://ct1ot5sohnujx" path="res://scenes/throw_count.tscn" id="3_mcmrr"]
+[ext_resource type="PackedScene" uid="uid://br1nrcjrgk54f" path="res://scenes/if_win.tscn" id="4_2mb3t"]
+[ext_resource type="PackedScene" uid="uid://evsf78bgv47p" path="res://scenes/if_def.tscn" id="5_3udxm"]
+[ext_resource type="PackedScene" uid="uid://dt7fefgcafu3o" path="res://scenes/stop_if.tscn" id="6_sptfq"]
+[ext_resource type="Texture2D" uid="uid://dfxf20da8bvci" path="res://PF/4.png" id="7_8o6gg"]
+[ext_resource type="Texture2D" uid="uid://cmsaojpycntbu" path="res://PF/5.png" id="8_qvu7m"]
+
+[sub_resource type="Gradient" id="Gradient_a2j3t"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.141176, 0.219608, 0.14902, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ursba"]
+gradient = SubResource("Gradient_a2j3t")
+
+[sub_resource type="Resource" id="Resource_gmqjj"]
+script = ExtResource("3_eedjo")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_3dlka"]
+script = ExtResource("3_eedjo")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[node name="Drawer" type="MarginContainer"]
+z_index = 2
+offset_right = 1125.0
+offset_bottom = 3725.0
+script = ExtResource("1_rf1ia")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(562.5, 3471.88)
+scale = Vector2(4.39453, 2757.75)
+texture = SubResource("GradientTexture1D_ursba")
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(1125, 2436)
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+scroll_deadzone = 110
+script = ExtResource("2_runcj")
+wheel_scroll_damper = SubResource("Resource_gmqjj")
+dragging_scroll_damper = SubResource("Resource_3dlka")
+
+[node name="MarginContainer" type="MarginContainer" parent="SmoothScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 160
+theme_override_constants/margin_bottom = -60
+
+[node name="MarginContainer" type="MarginContainer" parent="SmoothScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = -45
+
+[node name="TextureRect" type="TextureRect" parent="SmoothScrollContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_8ut87")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SmoothScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 63
+
+[node name="TextureRect" type="TextureRect" parent="SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("2_n6t2p")
+
+[node name="MarginContainer2" type="MarginContainer" parent="SmoothScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SmoothScrollContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="MarginContainer" type="MarginContainer" parent="SmoothScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 38
+
+[node name="Label" type="Label" parent="SmoothScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 56
+text = "активировать автоставку"
+uppercase = true
+
+[node name="ThrowCount" parent="SmoothScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer" instance=ExtResource("3_mcmrr")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="IfWin" parent="SmoothScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer" instance=ExtResource("4_2mb3t")]
+layout_mode = 2
+
+[node name="IfDef" parent="SmoothScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer" instance=ExtResource("5_3udxm")]
+layout_mode = 2
+
+[node name="StopIf" parent="SmoothScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer" instance=ExtResource("6_sptfq")]
+layout_mode = 2
+
+[node name="SaveBtn" type="TextureButton" parent="SmoothScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+texture_normal = ExtResource("7_8o6gg")
+
+[node name="CancelBtn" type="TextureButton" parent="SmoothScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+texture_normal = ExtResource("8_qvu7m")
+
+[connection signal="scroll_ended" from="SmoothScrollContainer" to="." method="_on_smooth_scroll_container_scroll_ended"]
+[connection signal="scroll_started" from="SmoothScrollContainer" to="." method="_on_smooth_scroll_container_scroll_started"]
+[connection signal="pressed" from="SmoothScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/SaveBtn" to="." method="_on_save_btn_pressed"]
+[connection signal="pressed" from="SmoothScrollContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/CancelBtn" to="." method="_on_cancel_btn_pressed"]
