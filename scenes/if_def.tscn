@@ -45,6 +45,7 @@ theme_override_constants/separation = 42
 
 [node name="CheckBtn" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" groups=["if_def"] instance=ExtResource("2_auwco")]
 layout_mode = 2
+is_checked = true
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2

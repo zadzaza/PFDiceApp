@@ -1,28 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvuhijiw1xv5r"]
+[gd_scene load_steps=3 format=3 uid="uid://bvuhijiw1xv5r"]
 
 [ext_resource type="Texture2D" uid="uid://h1djuwdlp2jo" path="res://PF/Line 2.png" id="1_8ypcb"]
+[ext_resource type="Script" path="res://scenes/coeff_chance.gd" id="1_ipdld"]
 
 [node name="CoeffChance" type="MarginContainer"]
-offset_right = 617.0
+offset_right = 596.0
 offset_bottom = 206.0
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 47
+theme_override_constants/margin_right = 147
+script = ExtResource("1_ipdld")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 82
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
 theme_override_constants/separation = -15
 alignment = 1
 
-[node name="CoeffValue" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="CoeffValue" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_stretch_ratio = 4.0
 theme_override_font_sizes/font_size = 125
 text = "1.95"
 horizontal_alignment = 1
 
-[node name="CoeffText" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="CoeffText" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.486275)
 theme_override_font_sizes/font_size = 36
@@ -31,25 +44,32 @@ horizontal_alignment = 1
 
 [node name="Line" type="Control" parent="HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="Line" type="Sprite2D" parent="HBoxContainer/Line"]
 position = Vector2(0, 15)
 texture = ExtResource("1_8ypcb")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
 theme_override_constants/separation = -15
 alignment = 1
 
-[node name="CoeffValue" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="ChanceValue" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_stretch_ratio = 4.0
 theme_override_font_sizes/font_size = 125
 text = "50%"
 horizontal_alignment = 1
 
-[node name="CoeffText" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="ChanceText" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.486275)
 theme_override_font_sizes/font_size = 36

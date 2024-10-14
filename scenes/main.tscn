@@ -32,6 +32,8 @@ theme_override_constants/separation = 115
 
 [node name="CoeffChance" parent="MarginContainer2/MarginContainer/VBoxContainer" instance=ExtResource("3_nwoee")]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Numbers" parent="MarginContainer2/MarginContainer/VBoxContainer" instance=ExtResource("4_8cuxd")]
 layout_mode = 2

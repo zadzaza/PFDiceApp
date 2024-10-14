@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://delgdwjqkyhbi"]
+[gd_scene load_steps=4 format=3 uid="uid://delgdwjqkyhbi"]
 
 [ext_resource type="PackedScene" uid="uid://c2v7j38bad0xg" path="res://scenes/range_txt_box.tscn" id="1_8kjrb"]
+[ext_resource type="Script" path="res://scenes/win_range.gd" id="1_l5veh"]
 [ext_resource type="Texture2D" uid="uid://bp2vujvr1yh72" path="res://PF/1 (1).png" id="2_ok0bq"]
 
 [node name="WinRange" type="MarginContainer"]
 offset_right = 1055.0
 offset_bottom = 245.0
+script = ExtResource("1_l5veh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -24,7 +26,8 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_constants/separation = -13
 
-[node name="RangeTxtBox" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_8kjrb")]
+[node name="RangeTxtBox1" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_8kjrb")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
@@ -36,5 +39,6 @@ texture = ExtResource("2_ok0bq")
 stretch_mode = 3
 
 [node name="RangeTxtBox2" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_8kjrb")]
+unique_name_in_owner = true
 layout_mode = 2
 flip_h = true

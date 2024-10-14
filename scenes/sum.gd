@@ -1,10 +1,7 @@
 extends MarginContainer
 
-@export var value: int
-
-func _ready() -> void:
-	set_value(100000)
-
-func set_value(value: int):
-	self.value = value
-	$MarginContainer/Label.text = str(self.value) + " сум"
+#func _ready() -> void:
+	#Events.sum_updated.connect(_on_sum_updated)
+#
+#func _on_sum_updated(sum: int):
+	#$MarginContainer/Label.text = str(sum) + " сум"

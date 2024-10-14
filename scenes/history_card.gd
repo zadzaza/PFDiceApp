@@ -31,10 +31,11 @@ func set_card(id: int, date: String, number: String, range_min: int, range_max: 
 	bet_lbl.text = str(bet)
 	
 	var word := ""
+	var str_result = str(abs(result))
 	var i = 0
 	var j = 0
-	for c in str(result).reverse():
-		if i == 3 and j != str(result).length() - 1:
+	for c in str_result.reverse():
+		if i == 3 and j != str_result.length() - 1:
 			word = " " + word
 			i = 0
 		word = c + word
@@ -47,7 +48,7 @@ func set_card(id: int, date: String, number: String, range_min: int, range_max: 
 		result_lbl.modulate = colors["green"][1]
 		label.modulate = colors["green"][1]
 	else:
-		result_lbl.text = word
+		result_lbl.text = "-" + word
 		panel_colored.modulate = colors["red"][0]
 		result_lbl.modulate = colors["red"][1]
 		label.modulate = colors["red"][1]
