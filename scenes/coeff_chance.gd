@@ -12,7 +12,7 @@ func _ready() -> void:
 func calcul():
 	Values.chance_value = abs(range1 - range2)
 	if Values.chance_value > 0:
-		Values.coeff_value = round((98.95 / Values.chance_value) * pow(10.0, 2)) / pow(10.0, 2)
+		Values.coeff_value = 98.95 / Values.chance_value
 	%ChanceValue.text = str(Values.chance_value) + "%"
 	%CoeffValue.text = "%.2f" % Values.coeff_value
 

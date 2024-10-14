@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://brjfhchgyy1fc"]
 
 [ext_resource type="Texture2D" uid="uid://dhysytat45y51" path="res://PF/Ресурсы/Зеленные цифры/0.png" id="1_0d5ey"]
+[ext_resource type="Script" path="res://scenes/numbers.gd" id="1_8lmk2"]
 [ext_resource type="Texture2D" uid="uid://dmj8mlyoe1rnr" path="res://PF/Ellipse 4.png" id="2_a7725"]
-[ext_resource type="Texture2D" uid="uid://da77wrseappo7" path="res://PF/Rectangle 529.png" id="3_p6xos"]
 
 [node name="Numbers" type="MarginContainer"]
 offset_right = 1029.0
 offset_bottom = 372.0
+script = ExtResource("1_8lmk2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -41,12 +42,3 @@ texture = ExtResource("1_0d5ey")
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer/HBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("1_0d5ey")
-
-[node name="Rectangle529" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(519, 562)
-texture = ExtResource("3_p6xos")
-
-[node name="2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(407, 461)

@@ -6,7 +6,7 @@ var max_value = Values.max_value
 func _ready() -> void:
 	%LineEdit.text = str(Values.min_value)
 	Events.bet_btn_pressed.connect(_on_bet_btn_pressed)
-	Events.bet_updated.connect(_on_bet_updated)
+	Events.bet_value_updated.connect(_on_bet_updated)
 
 func _on_bet_updated(bet_value: int):
 	if bet_value < min_value:
