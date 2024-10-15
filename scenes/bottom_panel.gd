@@ -10,7 +10,7 @@ func _on_bet_pressed() -> void:
 		var max_value = max(Values.range1_value, Values.range2_value)
 		var min_value = min(Values.range1_value, Values.range2_value)
 		
-		if picked_value > min_value and picked_value < max_value:
+		if picked_value >= min_value and picked_value <= max_value:
 			Events.win.emit(picked_value)
 		else:
 			Events.defeat.emit(picked_value)
