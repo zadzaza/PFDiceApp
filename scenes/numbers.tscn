@@ -1,11 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://brjfhchgyy1fc"]
+[gd_scene load_steps=5 format=3 uid="uid://brjfhchgyy1fc"]
 
-[ext_resource type="Texture2D" uid="uid://dhysytat45y51" path="res://PF/Ресурсы/Зеленные цифры/0.png" id="1_0d5ey"]
 [ext_resource type="Script" path="res://scenes/numbers.gd" id="1_8lmk2"]
 [ext_resource type="Texture2D" uid="uid://dmj8mlyoe1rnr" path="res://PF/Ellipse 4.png" id="2_a7725"]
+[ext_resource type="Texture2D" uid="uid://oy4lgpxvhfmd" path="res://PF/1.png" id="2_jwygt"]
+[ext_resource type="Texture2D" uid="uid://egwxegww1xou" path="res://PF/2.png" id="3_nyjad"]
 
 [node name="Numbers" type="MarginContainer"]
-offset_right = 1029.0
+offset_right = 1051.0
 offset_bottom = 372.0
 script = ExtResource("1_8lmk2")
 
@@ -17,13 +18,19 @@ theme_override_constants/separation = 8
 layout_mode = 2
 theme_override_constants/separation = 22
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer" groups=["numbers"]]
 layout_mode = 2
-texture = ExtResource("1_0d5ey")
 
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+[node name="Number" type="TextureRect" parent="HBoxContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("1_0d5ey")
+texture = ExtResource("2_jwygt")
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/HBoxContainer" groups=["numbers"]]
+layout_mode = 2
+
+[node name="Number2" type="TextureRect" parent="HBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("3_nyjad")
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
@@ -35,10 +42,16 @@ stretch_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 22
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer2" groups=["numbers"]]
 layout_mode = 2
-texture = ExtResource("1_0d5ey")
 
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/HBoxContainer2"]
+[node name="Number3" type="TextureRect" parent="HBoxContainer/HBoxContainer2/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("1_0d5ey")
+texture = ExtResource("3_nyjad")
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/HBoxContainer2" groups=["numbers"]]
+layout_mode = 2
+
+[node name="Number4" type="TextureRect" parent="HBoxContainer/HBoxContainer2/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("3_nyjad")

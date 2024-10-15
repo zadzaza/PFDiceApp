@@ -14,7 +14,7 @@ func calcul():
 	if Values.chance_value > 0:
 		Values.coeff_value = 98.95 / Values.chance_value
 	%ChanceValue.text = str(Values.chance_value) + "%"
-	%CoeffValue.text = "%.2f" % Values.coeff_value
+	%CoeffValue.text = str(floor(Values.coeff_value * 100) / 100.0)
 
 func _on_range1_changed(value: int):
 	range1 = value

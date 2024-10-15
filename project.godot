@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg")
 
 if_win=""
 if_def=""
+numbers=""
 
 [gui]
 
