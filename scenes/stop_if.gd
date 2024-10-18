@@ -1,11 +1,14 @@
 extends MarginContainer
 
+func _on_stop_if_is_over_pressed(is_checked: bool) -> void:
+	Values.stop_if_is_over = is_checked
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _on_stop_if_is_less_pressed(is_checked: bool) -> void:
+	Values.stop_if_is_less = is_checked
 
+func _on_stop_if_is_over_value_changed(new_text: String) -> void:
+	Values.stop_if_is_over_value = int(new_text)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_stop_if_is_less_value_changed(new_text: String) -> void:
+	Values.stop_if_is_less_value = int(new_text)
+	print(Values.stop_if_is_less_value)

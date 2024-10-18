@@ -16,10 +16,6 @@ func _on_bet_updated(bet_value: int):
 	%LineEdit.text = str(Values.bet_value)
 
 func _on_bet():
-	if Values.bet_value < min_value:
-		Values.bet_value = min_value
-	elif Values.bet_value > max_value:
-		Values.bet_value = max_value
 	%LineEdit.text = str(Values.bet_value)
 
 func _on_line_edit_text_changed(new_text: String) -> void:

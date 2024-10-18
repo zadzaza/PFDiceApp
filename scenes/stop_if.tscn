@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dt7fefgcafu3o"]
+[gd_scene load_steps=7 format=3 uid="uid://dt7fefgcafu3o"]
 
+[ext_resource type="Script" path="res://scenes/stop_if.gd" id="1_4y5yp"]
 [ext_resource type="Texture2D" uid="uid://dp0q8cmbc1b4d" path="res://PF/Rectangle 535.png" id="1_31edl"]
 [ext_resource type="Script" path="res://scenes/disable_percent_box.gd" id="2_s57d2"]
 [ext_resource type="PackedScene" uid="uid://ygx7hruyobqu" path="res://scenes/check_btn.tscn" id="3_mns1r"]
@@ -9,6 +10,7 @@
 [node name="StopIf" type="MarginContainer"]
 offset_right = 1088.0
 offset_bottom = 404.0
+script = ExtResource("1_4y5yp")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
@@ -80,3 +82,8 @@ text = "Баланс стал меньше"
 [node name="PercentTxtBox" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("5_dpqi4")]
 layout_mode = 2
 size_flags_horizontal = 10
+
+[connection signal="check_btn_pressed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3/CheckBtn" to="." method="_on_stop_if_is_over_pressed"]
+[connection signal="percent_txt_box_changed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3/PercentTxtBox" to="." method="_on_stop_if_is_over_value_changed"]
+[connection signal="check_btn_pressed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4/CheckBtn" to="." method="_on_stop_if_is_less_pressed"]
+[connection signal="percent_txt_box_changed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4/PercentTxtBox" to="." method="_on_stop_if_is_less_value_changed"]

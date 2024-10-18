@@ -36,6 +36,7 @@ func add(scene):
 	
 func _on_timer_timeout() -> void:
 	if throw_count > 0:
+		Values
 		Events.bet.emit()
 	else:
 		Events.stop_autobet.emit()

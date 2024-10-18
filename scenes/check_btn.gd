@@ -35,8 +35,10 @@ func _on_button_pressed() -> void:
 	
 	var btns_win = get_tree().get_nodes_in_group("if_win")
 	var btns_def = get_tree().get_nodes_in_group("if_def")
-	deactivate_if(btns_win)
-	deactivate_if(btns_def)
+	
+	if is_checked:
+		deactivate_if(btns_win)
+		deactivate_if(btns_def)
 
 func deactivate_if(btns: Array):
 	if self in btns:

@@ -7,4 +7,3 @@ func _ready() -> void:
 
 func _on_line_edit_text_changed(new_text: String) -> void:
 	Values.throw_count = int(%LineEdit.text)
-	print(Values.throw_count)

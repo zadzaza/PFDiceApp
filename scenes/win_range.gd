@@ -29,7 +29,6 @@ func _on_range1_text_changed(text: String):
 			Values.range2_value = Values.range1_value - 1
 		range_txt_box2.text = str(Values.range2_value)
 		
-	print(Values.range1_value)
 	connect_signals()
 
 func _on_range2_text_changed(text: String):
@@ -42,5 +41,4 @@ func _on_range2_text_changed(text: String):
 			Values.range1_value = Values.range2_value + 1
 		range_txt_box1.text = str(Values.range1_value)
 		
-	print(Values.range2_value)
 	connect_signals()

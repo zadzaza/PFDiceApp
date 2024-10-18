@@ -69,10 +69,10 @@ func _on_bet_pressed() -> void:
 	else:
 		if is_instance_valid(main):
 			if Values.throw_count > 0:
+				Events.start_autobet.emit()
 				Events.bet.emit()
 				show_stop_btn()
-				Events.start_autobet.emit()
-				#main.start_autobet()
+				
 
 func _on_stop_autobet() -> void:
 	show_bet_btn()
