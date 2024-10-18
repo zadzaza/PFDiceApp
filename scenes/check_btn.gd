@@ -13,7 +13,7 @@ signal check_btn_pressed(is_checked: bool)
 func _ready() -> void:
 	call_deferred("_initialize_signals", is_checked)
 
-func _initialize_signals(_is_checked) -> void:
+func _initialize_signals(_is_checked: bool) -> void:
 	self.check_btn_pressed.connect(_on_check_btn_pressed)
 	self.check_btn_pressed.emit(_is_checked)
 
@@ -28,7 +28,6 @@ func animate(_is_checked: bool):
 
 	tween.tween_property(ellipse_check, "position", target_position, 0.2).from_current()
 	tween.tween_property(toggle_bg, "modulate", target_color, 0.2).from_current()
-
 
 func _on_button_pressed() -> void:
 	is_checked = !is_checked

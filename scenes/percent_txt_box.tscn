@@ -8,9 +8,8 @@
 custom_minimum_size = Vector2(414, 96)
 offset_right = 414.0
 offset_bottom = 96.0
-size_flags_horizontal = 8
+size_flags_horizontal = 0
 script = ExtResource("1_wdlpe")
-metadata/_edit_use_anchors_ = true
 
 [node name="LineEdit" type="LineEdit" parent="."]
 modulate = Color(1, 1, 1, 0.439216)
@@ -20,7 +19,7 @@ size_flags_horizontal = 8
 mouse_filter = 1
 mouse_force_pass_scroll_events = false
 theme = ExtResource("2_kpjix")
-max_length = 3
+theme_override_font_sizes/font_size = 26
 virtual_keyboard_type = 2
 right_icon = ExtResource("2_oy8np")
 
@@ -29,3 +28,6 @@ visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 mouse_filter = 1
+
+[connection signal="percent_txt_box_changed" from="." to="." method="_on_percent_txt_box_changed"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]

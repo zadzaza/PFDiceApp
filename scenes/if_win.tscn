@@ -99,7 +99,7 @@ text = "Увеличить ставку на"
 
 [node name="PercentTxtBox" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("5_7p7bx")]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 
 [node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -125,3 +125,10 @@ text = "Уменьшить ставку на"
 [node name="PercentTxtBox" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("5_7p7bx")]
 layout_mode = 2
 size_flags_horizontal = 10
+
+[connection signal="check_btn_pressed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/CheckBtn" to="." method="_on_if_win_not_change_pressed"]
+[connection signal="check_btn_pressed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2/CheckBtn" to="." method="_on_if_win_return_base_bet"]
+[connection signal="check_btn_pressed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3/CheckBtn" to="." method="_on_if_win_increase"]
+[connection signal="percent_txt_box_changed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3/PercentTxtBox" to="." method="_on_if_win_value_increase_changed"]
+[connection signal="check_btn_pressed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4/CheckBtn" to="." method="_on_if_win_decrease"]
+[connection signal="percent_txt_box_changed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4/PercentTxtBox" to="." method="_on_if_win_value_decrease_changed"]

@@ -24,10 +24,15 @@ var red_numbers: Dictionary = {
 	'8': load("res://PF/Ресурсы/Красные цифры/32.png"),
 	'9': load("res://PF/Ресурсы/Красные цифры/33.png")
 }
+var nulls: Dictionary = {
+	's': load("res://PF/1.png"),
+	'0': load("res://PF/2.png")
+}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Events.win.connect(_on_win)
 	Events.defeat.connect(_on_defeat)
+	Events.stop_autobet.connect(_on_stop_autobet)
 
 func _on_win(value: float):
 	pick_color(green_numbers, value)
@@ -35,9 +40,18 @@ func _on_win(value: float):
 func _on_defeat(value: float):
 	pick_color(red_numbers, value)
 
-func pick_color(color_dic: Dictionary, value: float):
-	var formated_value = ("%05.2f" % value).replace('.', '')
+func _on_stop_autobet():
+	pick_color(nulls, 0.00, true)
+
+func pick_color(color_dic: Dictionary, value: float, nul: bool = false):
+	
+	var formated_value
 	var numbers = get_tree().get_nodes_in_group("numbers")
+	
+	if nul:
+		formated_value = 's' + ("%.2f" % value).replace('.', '')
+	else:
+		formated_value = ("%05.2f" % value).replace('.', '')
 	
 	var c = 0
 	for n in numbers:

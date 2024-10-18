@@ -54,7 +54,7 @@ text = "Баланс стал больше"
 
 [node name="PercentTxtBox" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("5_dpqi4")]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 
 [node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2

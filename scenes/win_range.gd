@@ -11,6 +11,10 @@ func _ready() -> void:
 	range_txt_box2.text_changed.connect(_on_range2_text_changed)
 	connect_signals()
 
+func set_range_editable(editable: bool) -> void:
+	%RangeTxtBox1.get_node("LineEdit").editable = editable
+	%RangeTxtBox2.get_node("LineEdit").editable = editable
+
 func connect_signals():
 	Events.range1_changed.emit(Values.range1_value)
 	Events.range2_changed.emit(Values.range2_value)

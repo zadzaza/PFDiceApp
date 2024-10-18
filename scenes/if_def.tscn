@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://evsf78bgv47p"]
+[gd_scene load_steps=7 format=3 uid="uid://evsf78bgv47p"]
 
+[ext_resource type="Script" path="res://scenes/if_def.gd" id="1_3m0wn"]
 [ext_resource type="Texture2D" uid="uid://dp0q8cmbc1b4d" path="res://PF/Rectangle 535.png" id="1_lg0bu"]
 [ext_resource type="PackedScene" uid="uid://ygx7hruyobqu" path="res://scenes/check_btn.tscn" id="2_auwco"]
 [ext_resource type="Texture2D" uid="uid://dns4dul2ujyrj" path="res://PF/Line 3.png" id="4_x6qs6"]
@@ -9,6 +10,7 @@
 [node name="IfDef" type="MarginContainer"]
 offset_right = 1088.0
 offset_bottom = 710.0
+script = ExtResource("1_3m0wn")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
@@ -96,7 +98,7 @@ text = "Увеличить ставку на"
 
 [node name="PercentTxtBox" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("5_th5y1")]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 size_flags_vertical = 4
 
 [node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer"]
@@ -123,3 +125,10 @@ text = "Уменьшить ставку на"
 [node name="PercentTxtBox" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("5_th5y1")]
 layout_mode = 2
 size_flags_horizontal = 10
+
+[connection signal="check_btn_pressed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/CheckBtn" to="." method="_on_if_def_not_change_pressed"]
+[connection signal="check_btn_pressed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2/CheckBtn" to="." method="_on_if_def_return_base_bet_pressed"]
+[connection signal="check_btn_pressed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3/CheckBtn" to="." method="_on_if_def_increase_pressed"]
+[connection signal="percent_txt_box_changed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3/PercentTxtBox" to="." method="_on_if_def_value_increase_changed"]
+[connection signal="check_btn_pressed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4/CheckBtn" to="." method="_on_if_def_decrease_pressed"]
+[connection signal="percent_txt_box_changed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4/PercentTxtBox" to="." method="_on_if_def_value_decrease_changed"]

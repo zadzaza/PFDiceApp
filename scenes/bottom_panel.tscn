@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cunqu2xrkppp2"]
+[gd_scene load_steps=21 format=3 uid="uid://cunqu2xrkppp2"]
 
 [ext_resource type="Texture2D" uid="uid://8ljovf3ida43" path="res://PF/Rectangle 532.png" id="1_dh0dg"]
 [ext_resource type="Script" path="res://scenes/bottom_panel.gd" id="1_ltepb"]
@@ -6,6 +6,34 @@
 [ext_resource type="PackedScene" uid="uid://b4dnkwc7brepc" path="res://scenes/bet_value.tscn" id="3_hdhu8"]
 [ext_resource type="Texture2D" uid="uid://brdnile1ink7q" path="res://PF/2 (1).png" id="4_8o3gm"]
 [ext_resource type="Texture2D" uid="uid://bd33mpkt42vfw" path="res://PF/1 (2).png" id="6_0sruf"]
+[ext_resource type="Texture2D" uid="uid://cvnym3y3vsj1g" path="res://PF/2 (2).png" id="6_pf7dy"]
+[ext_resource type="Texture2D" uid="uid://xa0unq8r58wj" path="res://PF/Красная кнопка.png" id="8_xt2jj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fa0xm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yblg2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6loq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vov3g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gg4li"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe60h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rt7mo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_256tu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ci0cx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qw5ve"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ecmmk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pedrm"]
+font_size = 56
+outline_size = 4
 
 [node name="BottomPanel" type="MarginContainer"]
 offset_right = 40.0
@@ -25,6 +53,7 @@ layout_mode = 2
 theme_override_constants/separation = 80
 
 [node name="Buttons" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_5164t")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -36,15 +65,85 @@ size_flags_horizontal = 4
 layout_mode = 2
 theme_override_constants/separation = 35
 
-[node name="ActivateBtn" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ActivateBtn" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("4_8o3gm")
 
-[node name="BetBtn" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="DeactivateBtn" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_pf7dy")
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/DeactivateBtn"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -55.0
+offset_right = -23.0
+offset_bottom = 54.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fa0xm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yblg2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t6loq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vov3g")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_gg4li")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xe60h")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rt7mo")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_256tu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ci0cx")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_qw5ve")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ecmmk")
+flat = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BetBtn" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("6_0sruf")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/ActivateBtn" to="." method="_on_activate_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/BetBtn" to="." method="_on_bet_pressed"]
+[node name="StopBtn" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("8_xt2jj")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/StopBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.5
+offset_top = -38.5
+offset_right = 156.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "стоп"
+label_settings = SubResource("LabelSettings_pedrm")
+horizontal_alignment = 1
+uppercase = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/ActivateBtn" to="." method="_on_activate_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/DeactivateBtn/Button" to="." method="_on_deactivate_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/BetBtn" to="." method="_on_bet_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/StopBtn" to="." method="_on_stop_btn_pressed"]

@@ -33,14 +33,12 @@ func set_card(id: int, date: String, number: String, range_min: int, range_max: 
 	var word := ""
 	var str_result = str(abs(result))
 	var i = 0
-	var j = 0
 	for c in str_result.reverse():
-		if i == 3 and j != str_result.length() - 1:
+		if i == 3:
 			word = " " + word
 			i = 0
 		word = c + word
 		i += 1
-		j += 1
 
 	if result >= 0:
 		result_lbl.text = "+" + word

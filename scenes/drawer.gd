@@ -1,9 +1,15 @@
 extends MarginContainer
 
 @onready var smooth_scroll_container: SmoothScrollContainer = $SmoothScrollContainer
+@onready var main = get_parent()
 
 func _on_save_btn_pressed() -> void:
-	animate(self)
+	if Values.throw_count > 0:
+		animate(self)
+		Events.stop_autobet.emit()
+		main.show_deactivate()
+	else:
+		smooth_scroll_container.scroll_to_top(0.3)
 
 func _on_cancel_btn_pressed() -> void:
 	animate(self)
@@ -26,4 +32,5 @@ func animate(node: Control):
 		#tween.tween_property(self, "position:y", get_viewport().get_visible_rect().size.y, 0.5)
 
 func _on_smooth_scroll_container_scroll_started() -> void:
-	print("started")
+	#print("started")
+	pass
