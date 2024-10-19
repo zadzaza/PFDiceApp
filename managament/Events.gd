@@ -20,17 +20,20 @@ func _ready() -> void:
 	start_autobet.connect(_on_start_autobet)
 	stop_autobet.connect(_on_stop_autobet)
 
-#func _on_bet_value_updated(bet_value: int):
-	#if Values.bet_value < Values.min_value or Values.bet_value >Values. max_value:
-		#Values.bet_value = Values.min_value
-	#
-	#Values.bet_value = bet_value
-
 func _on_bet():
 	if Values.bet_value < Values.min_value:
 		Values.bet_value = Values.min_value
 	elif Values.bet_value > Values.max_value:
 		Values.bet_value = Values.min_value
+
+	if Values.stop_if_is_over:
+		if Values.sum > sum_autobet * (Values.stop_if_is_over_value / 100):
+			stop_autobet.emit()
+			return
+	if Values.stop_if_is_less:
+		if Values.sum < sum_autobet * (Values.stop_if_is_less_value / 100):
+			stop_autobet.emit()
+			return
 
 	if (Values.sum - Values.bet_value) >= 0:
 		var picked_value = randf_range(0.00, 99.00)
@@ -45,13 +48,6 @@ func _on_bet():
 		stop_autobet.emit()
 	
 	bet_value_updated.emit(Values.bet_value)
-
-	if Values.stop_if_is_over:
-		if Values.sum > sum_autobet * (Values.stop_if_is_over_value / 100):
-			stop_autobet.emit()
-	if Values.stop_if_is_less:
-		if Values.sum < sum_autobet * (Values.stop_if_is_less_value / 100):
-			stop_autobet.emit()
 	
 func _on_win(value: float):
 	if Values.autobet_active:
